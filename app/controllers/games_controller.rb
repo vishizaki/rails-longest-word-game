@@ -8,6 +8,7 @@ class GamesController < ApplicationController
     dictionary_serialized = open(url).read
     dictionary_api = JSON.parse(dictionary_serialized)
     @found_the_word = dictionary_api["found"] #will return true or false
+    # binding.pry
     # parsed_word = dictionary_api["word"] #will return the word
     # parsed_length = dictionary_api["length"] #will return the length
   end
@@ -21,7 +22,6 @@ class GamesController < ApplicationController
     @user_word = params[:user_word]
     @user_word_split = params[:user_word].split("")
     @new_array = params[:letters_array].split("")
-
     searchWord = searchWord(@user_word)
 
 
